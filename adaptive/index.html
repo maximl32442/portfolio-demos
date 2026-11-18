@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%2314123a%27/%3E%3Cpath d=%27M9 17l5 5 9-11%27 stroke=%27%23fff%27 stroke-width=%273%27 fill=%27none%27 stroke-linecap=%27round%27/%3E%3C/svg%3E"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Демо-проект: сайт вымышленного автосервиса до и после мобильной адаптации.">
+<title>Кейс: мобильная адаптация сайта автосервиса — демо-проект</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:"Golos Text",system-ui,sans-serif;background:#f3f3f5;color:#1b1b1f;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}a{color:#e63946}
+header{padding:56px 0 24px}.eyebrow{color:#e63946;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.06em}
+h1{font-size:clamp(28px,4.4vw,46px);line-height:1.1;margin:10px 0 14px;font-weight:800}
+.lead{color:#6b6b76;max-width:640px;font-size:18px}
+.compare{display:flex;justify-content:center;gap:48px;padding:40px 0;flex-wrap:wrap}
+.col{text-align:center}.col h2{font-size:18px;margin-bottom:14px;display:flex;gap:8px;align-items:center;justify-content:center}
+.tag{font-size:12px;padding:3px 10px;border-radius:99px;color:#fff}.bad{background:#9a9aa5}.good{background:#2a9d5c}
+.device{width:395px;height:700px;background:#1b1b1f;border-radius:48px;padding:10px;box-shadow:0 30px 60px -20px rgba(0,0,0,.4);position:relative}
+.device iframe{width:375px;height:680px;border:0;border-radius:38px;background:#fff;display:block}
+.pin{position:absolute;right:-14px;background:#e63946;color:#fff;font-size:13px;font-weight:600;padding:6px 12px;border-radius:10px;box-shadow:0 8px 18px -8px rgba(230,57,70,.7);white-space:nowrap;pointer-events:none}.pin::before{content:"";position:absolute;left:-7px;top:50%;width:10px;height:10px;background:#e63946;border-radius:50%;transform:translateY(-50%);box-shadow:0 0 0 4px rgba(230,57,70,.25)}
+.col a{display:inline-block;margin-top:14px;font-size:15px}
+.fixes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;padding:16px 0 72px}
+.fix{background:#fff;border-radius:16px;padding:22px}.fix h3{font-size:17px;margin-bottom:6px}.fix p{color:#6b6b76;font-size:15px}
+.n{color:#e63946;font-weight:800;margin-right:6px}
+footer{padding:24px 0 40px;color:#6b6b76;font-size:14px}
+@media (max-width:900px){.pin{right:8px}}
+.pin-legend{display:none}
+@media (max-width:600px){.device .pin{right:6px;width:24px;height:24px;padding:0;font-size:0;border-radius:50%;display:grid;place-items:center}.device .pin::after{content:attr(data-n);color:#fff;font-size:12px;font-weight:700}.device .pin::before{display:none}.pin-legend{display:block;margin:14px 0 0;padding-left:0;list-style:none;counter-reset:p;font-size:14px;text-align:left}.pin-legend li{counter-increment:p;display:flex;gap:8px;align-items:center;margin:6px 0}.pin-legend li::before{content:counter(p);flex:none;width:22px;height:22px;border-radius:50%;background:#e63946;color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center}}
+@media (max-width:440px){.pin{font-size:12px;padding:4px 8px}.device{width:100%;height:auto;padding:8px;border-radius:36px}.device iframe{width:100%;height:640px;border-radius:28px}}
+</style></head><body>
+<header class="wrap"><p class="eyebrow">Кейс · мобильная адаптация · демо-проект</p><h1>Сайт автосервиса: до и после адаптации под телефон</h1>
+<p class="lead">Исходный сайт свёрстан с фиксированной шириной 1100 px. На телефоне его приходилось масштабировать пальцами, а кнопка записи была не видна. Ниже тот же контент на экране 375 px до и после доработки. Обе версии можно листать прямо в рамке.</p></header>
+<main class="wrap">
+<section class="compare">
+<div class="col"><h2><span class="tag bad">До</span> Фиксированная вёрстка</h2><div class="device"><iframe src="before.html" title="Сайт до адаптации на экране 375 px" loading="lazy"></iframe><span class="pin" style="top:34px" data-n="1">Меню и телефон пропали</span><span class="pin" style="top:86px" data-n="2">Заголовок обрезан ↓</span><span class="pin" style="top:345px" data-n="3">Текст прилип к кнопке</span><span class="pin" style="top:555px" data-n="4">Карточки уходят за край</span></div><ol class="pin-legend"><li>Меню и телефон пропали</li><li>Заголовок обрезан</li><li>Текст прилип к кнопке</li><li>Карточки уходят за край</li></ol><a href="before.html">Открыть версию «до» →</a></div>
+<div class="col"><h2><span class="tag good">После</span> Адаптивная вёрстка</h2><div class="device"><iframe src="after.html" title="Сайт после адаптации на экране 375 px" loading="lazy"></iframe></div><a href="after.html">Открыть версию «после» →</a></div>
+</section>
+<h2 style="font-size:28px;margin-bottom:8px">Что исправлено</h2>
+<section class="fixes">
+<div class="fix"><h3><span class="n">01</span>Добавлен viewport и резиновая сетка</h3><p>Абсолютное позиционирование и ширина 1100 px заменены на flex и grid с ограничением max-width.</p></div>
+<div class="fix"><h3><span class="n">02</span>Мобильное меню</h3><p>Пункты меню спрятаны под бургер, а кнопка «Позвонить» всегда видна в шапке.</p></div>
+<div class="fix"><h3><span class="n">03</span>Карточки услуг</h3><p>Вместо float и фиксированной высоты используется сетка auto-fit, поэтому текст больше не вылезает за край.</p></div>
+<div class="fix"><h3><span class="n">04</span>Таблица цен</h3><p>Таблица прокручивается внутри своего блока и не растягивает страницу вбок.</p></div>
+<div class="fix"><h3><span class="n">05</span>Форма записи</h3><p>На телефоне поля идут в столбик, шрифт в них 16 px (так iOS не приближает страницу), кнопки удобно нажимать пальцем.</p></div>
+<div class="fix"><h3><span class="n">06</span>Типографика</h3><p>Размер заголовков подстраивается под экран через clamp(), строки не обрезаются.</p></div>
+</section></main>
+<footer class="wrap">Демо-проект для портфолио. Автосервис вымышлен. <a href="../">Все демо-проекты</a></footer>
+</body></html>
