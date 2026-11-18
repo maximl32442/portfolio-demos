@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%2314123a%27/%3E%3Cpath d=%27M9 17l5 5 9-11%27 stroke=%27%23fff%27 stroke-width=%273%27 fill=%27none%27 stroke-linecap=%27round%27/%3E%3C/svg%3E"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Демо-проект: адаптивная версия сайта вымышленного автосервиса «Гараж 54».">
+<title>«Гараж 54» — автосервис в Новосибирске (после адаптации)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--red:#e63946;--ink:#1b1b1f;--gray:#f3f3f5;--muted:#6b6b76}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:"Golos Text",system-ui,sans-serif;color:var(--ink);line-height:1.55;font-size:16px;background:#fff}
+a{color:inherit}.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.top{background:var(--ink);color:#fff;position:sticky;top:0;z-index:5}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{font-weight:800;font-size:20px;text-decoration:none}.logo b{color:var(--red)}
+.menu{display:flex;gap:24px}.menu a{text-decoration:none;color:#ccc;font-size:15px}.menu a:hover{color:#fff}
+.call{background:var(--red);color:#fff;text-decoration:none;font-weight:600;padding:10px 16px;border-radius:10px;white-space:nowrap}
+.burger{display:none;background:none;border:1px solid #444;border-radius:10px;width:44px;height:44px;color:#fff;font-size:20px;cursor:pointer}
+.hero{background:linear-gradient(120deg,#1b1b1f 55%,#2a2a31);color:#fff;padding:56px 0}
+.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.1;font-weight:800;max-width:640px}
+.hero p{color:#bbb;margin:16px 0 28px;max-width:520px;font-size:18px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-weight:600;padding:14px 24px;border-radius:12px;text-align:center}
+.btn.o{background:transparent;border:1.5px solid #555}
+.section{padding:56px 0;scroll-margin-top:72px}[id]{scroll-margin-top:72px}.scroll-hint{display:none;font-size:14px;color:#6b6b75;margin:-12px 0 10px}@media (max-width:620px){.scroll-hint{display:block}}.table-wrap{background:linear-gradient(90deg,#fff 30%,rgba(255,255,255,0)) left/40px 100% no-repeat local,linear-gradient(270deg,#fff 30%,rgba(255,255,255,0)) right/40px 100% no-repeat local,radial-gradient(farthest-side at 0 50%,rgba(0,0,0,.18),transparent) left/12px 100% no-repeat scroll,radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.18),transparent) right/12px 100% no-repeat scroll}h2{font-size:clamp(24px,3.4vw,34px);margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--gray);border-radius:16px;padding:22px}.card h3{font-size:18px;margin-bottom:6px}.card p{color:var(--muted);font-size:15px}.card b{display:block;margin-top:12px;color:var(--red)}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px;border:1px solid #e5e5ea}
+table{border-collapse:collapse;width:100%;min-width:520px}th,td{padding:14px 16px;text-align:left;border-bottom:1px solid #eee}th{background:var(--gray)}
+.form{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;background:var(--gray);padding:20px;border-radius:16px}
+.form input{font:inherit;padding:14px;border:1px solid #ddd;border-radius:10px;min-width:0;font-size:16px}
+.form button{border:0;font:inherit;font-weight:600;cursor:pointer}
+.foot{background:var(--ink);color:#999;padding:28px 0;font-size:14px}
+@media (max-width:760px){
+ .menu{display:none;position:absolute;top:64px;left:0;right:0;background:var(--ink);flex-direction:column;padding:8px 20px 20px;gap:0}
+ .menu.open{display:flex}.menu a{padding:12px 0;border-bottom:1px solid #333}
+ .burger{display:block}.call{padding:10px 12px;font-size:14px}
+ .btns .btn{flex:1 1 100%}
+ .form{grid-template-columns:1fr}
+ .hero{padding:40px 0}.section{padding:40px 0}
+}
+</style></head><body>
+<header class="top"><div class="wrap nav"><a href="#" class="logo">Гараж<b>54</b></a>
+<nav class="menu" id="menu"><a href="#services">Услуги</a><a href="#prices">Цены</a><a href="#book">Запись</a></nav>
+<a class="call" href="tel:+70000000000">Позвонить</a><button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="menu" >☰</button></div></header>
+<section class="hero"><div class="wrap"><h1>Ремонт и обслуживание авто без очередей</h1><p>Диагностика за 30 минут, запчасти в наличии и гарантия на работы 12 месяцев.</p><div class="btns"><a href="#book" class="btn">Записаться онлайн</a><a href="#prices" class="btn o">Смотреть цены</a></div></div></section>
+<section class="section" id="services"><div class="wrap"><h2>Услуги</h2><div class="grid">
+<div class="card"><h3>Компьютерная диагностика</h3><p>Считываем ошибки и проверяем основные системы автомобиля.</p><b>от 900 ₽</b></div>
+<div class="card"><h3>Замена масла</h3><p>Работа за 20 минут, масло ваше или наше.</p><b>от 600 ₽</b></div>
+<div class="card"><h3>Ходовая часть</h3><p>Проверка и ремонт подвески и рулевого управления.</p><b>от 1 500 ₽</b></div>
+<div class="card"><h3>Шиномонтаж</h3><p>Сезонная переобувка и балансировка колёс.</p><b>от 1 800 ₽</b></div></div></div></section>
+<section class="section" id="prices" style="padding-top:0"><div class="wrap"><h2>Цены на популярные работы</h2><p class="scroll-hint">Листайте таблицу вбок →</p><div class="table-wrap"><table><thead><tr><th>Работа</th><th>Легковой</th><th>Кроссовер</th><th>Время</th></tr></thead><tbody>
+<tr><td>Замена масла и фильтра</td><td>600 ₽</td><td>800 ₽</td><td>20 мин</td></tr><tr><td>Замена тормозных колодок</td><td>1 200 ₽</td><td>1 500 ₽</td><td>40 мин</td></tr><tr><td>Развал-схождение</td><td>1 900 ₽</td><td>2 300 ₽</td><td>45 мин</td></tr><tr><td>Замена ремня ГРМ</td><td style="white-space:nowrap">от 5 500 ₽</td><td style="white-space:nowrap">от 7 000 ₽</td><td>3 ч</td></tr></tbody></table></div></div></section>
+<section class="section" id="book" style="padding-top:0"><div class="wrap"><h2>Запись на сервис</h2><form class="form" onsubmit="event.preventDefault();this.innerHTML='<p><b>Спасибо!</b> Это демо, заявка никуда не отправляется.</p>'"><input placeholder="Ваше имя" aria-label="Имя" required><input type="tel" placeholder="Телефон" aria-label="Телефон" required><button class="btn" type="submit">Записаться</button></form></div></section>
+<footer class="foot"><div class="wrap">Демо-проект для портфолио. Автосервис вымышлен. Версия после адаптации.</div></footer>
+<script>
+const b=document.querySelector('.burger'),m=document.getElementById('menu');
+b.addEventListener('click',()=>{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');b.setAttribute('aria-expanded','false')}));
+</script>
+</body></html>
