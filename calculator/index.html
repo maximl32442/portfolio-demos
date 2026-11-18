@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%2314123a%27/%3E%3Cpath d=%27M9 17l5 5 9-11%27 stroke=%27%23fff%27 stroke-width=%273%27 fill=%27none%27 stroke-linecap=%27round%27/%3E%3C/svg%3E"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Демо-проект: калькулятор стоимости ремонта и квиз с подбором для вымышленной компании «Ровно».">
+<title>«Ровно» — калькулятор стоимости ремонта и квиз (демо-проект)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="top"><div class="wrap nav"><a href="#" class="logo"><span>Р</span>Ровно</a><nav><a href="#calc">Калькулятор</a><a href="#quiz">Подбор ремонта</a></nav></div></header>
+<main>
+<section class="hero wrap"><p class="eyebrow">Ремонт квартир под ключ · демо-проект</p><h1>Посчитайте ремонт за минуту, <span>без звонка менеджеру</span></h1><p class="lead">Цена пересчитывается сразу, как только вы меняете параметр. Если не знаете, какой ремонт нужен, ответьте на 3–4 вопроса квиза.</p></section>
+
+<section id="calc" class="wrap calc">
+<form class="panel" id="calcForm" aria-label="Параметры ремонта">
+  <fieldset><legend>Тип ремонта</legend><div class="radios">
+    <label class="rc"><input type="radio" name="type" value="3500" checked><span><b>Косметический</b><small>Обои, покраска, напольное покрытие</small><em>3 500 ₽/м²</em></span></label>
+    <label class="rc"><input type="radio" name="type" value="7500"><span><b>Капитальный</b><small>Электрика, стяжка, выравнивание стен</small><em>7 500 ₽/м²</em></span></label>
+    <label class="rc"><input type="radio" name="type" value="12000"><span><b>Дизайнерский</b><small>По проекту, сложные отделки</small><em>12 000 ₽/м²</em></span></label>
+  </div></fieldset>
+  <fieldset><legend>Площадь квартиры: <output id="areaOut">54</output> м²</legend>
+    <input type="range" id="area" min="15" max="200" value="54" aria-label="Площадь в квадратных метрах"><div class="scale"><span>15 м²</span><span>200 м²</span></div></fieldset>
+  <fieldset><legend>Жильё</legend><div class="seg">
+    <label><input type="radio" name="home" value="1" checked><span>Вторичка</span></label>
+    <label><input type="radio" name="home" value="0.9"><span>Новостройка</span></label>
+  </div></fieldset>
+  <fieldset><legend>Санузлы</legend><div class="stepper"><button type="button" data-d="-1" aria-label="Меньше">−</button><output id="baths">1</output><button type="button" data-d="1" aria-label="Больше">+</button><small>+85 000 ₽ за каждый</small></div></fieldset>
+  <fieldset><legend>Дополнительно</legend><div class="checks">
+    <label><input type="checkbox" value="area:900"><span>Тёплый пол <small>900 ₽/м²</small></span></label>
+    <label><input type="checkbox" value="fix:60000"><span>Замена окон <small>60 000 ₽</small></span></label>
+    <label><input type="checkbox" value="area:450"><span>Шумоизоляция <small>450 ₽/м²</small></span></label>
+    <label><input type="checkbox" value="pct:8"><span>Закупка черновых материалов <small>+8%</small></span></label>
+  </div></fieldset>
+</form>
+<aside class="total" aria-live="polite">
+  <p class="t-label">Ориентировочная стоимость</p>
+  <p class="t-sum" id="sum">0 ₽</p>
+  <p class="t-term">Срок: <b id="term">—</b></p>
+  <ul class="t-list" id="breakdown"></ul>
+  <button class="btn" type="button" id="toQuiz">Уточнить через квиз</button>
+  <p class="t-note">Расчёт примерный: это демо, данные считаются в браузере и никуда не отправляются.</p>
+</aside>
+</section>
+
+<section id="quiz" class="wrap"><div class="quiz" id="quizBox">
+  <div class="q-head"><h2>Подберём формат ремонта</h2><div class="q-prog" aria-hidden="true"><i id="prog"></i></div><span class="q-step" id="stepLabel"></span></div>
+  <div id="qBody"></div>
+  <div class="q-nav"><button class="btn ghost" id="back" type="button">Назад</button></div>
+</div></section>
+</main>
+<footer class="foot wrap">Демо-проект для портфолио: калькулятор и квиз на чистом JavaScript. Компания и цены вымышлены. <a href="../">Все демо-проекты</a></footer>
+<script src="app.js" defer></script>
+</body></html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%2314123a%27/%3E%3Cpath d=%27M9 17l5 5 9-11%27 stroke=%27%23fff%27 stroke-width=%273%27 fill=%27none%27 stroke-linecap=%27round%27/%3E%3C/svg%3E"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML-письмо для магазина «Полка» — демо-проект</title>
+<meta name="description" content="Демо-проект: адаптивное промо-письмо на табличной вёрстке для вымышленного магазина посуды «Полка».">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Manrope,system-ui,sans-serif;background:#2a1149;color:#f3eaf7;line-height:1.55}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}a{color:#ff9fca}
+header{padding:56px 0 24px}.eyebrow{color:#ff9fca;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.06em}
+h1{font-size:clamp(28px,4.4vw,46px);line-height:1.1;margin:10px 0 14px;font-weight:800}
+.lead{color:#cdbbe0;max-width:680px;font-size:18px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.chips span{border:1px solid #4d2f78;border-radius:99px;padding:6px 14px;font-size:14px;color:#cdbbe0}
+.show{display:flex;gap:32px;justify-content:center;align-items:flex-start;padding:40px 0 72px;flex-wrap:wrap}
+.label{font-size:14px;color:#cdbbe0;margin-bottom:10px;text-align:center}
+.show>div{width:100%;max-width:680px;min-width:0}.show>div:last-child{max-width:395px}.desk{width:100%;max-width:100%;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.desk .bar{background:#efe9f2;padding:10px 14px;display:flex;gap:6px;align-items:center;color:#7b6a85;font-size:13px}
+.desk .bar i{width:10px;height:10px;border-radius:50%;background:#d6c9dd}
+.desk .meta{padding:14px 20px;border-bottom:1px solid #eee;color:#2a1149;font-size:14px}.desk .meta small{color:#8a7a92;display:block}
+.desk iframe{width:100%;height:1180px;border:0;display:block}
+.phone{width:395px;max-width:100%;background:#120624;border-radius:46px;padding:10px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.phone iframe{width:100%;height:760px;border:0;border-radius:36px;display:block;background:#fff}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;padding-bottom:72px}
+.note{background:#361a5e;border-radius:16px;padding:22px}.note h3{font-size:17px;margin-bottom:6px;color:#fff}.note p{color:#cdbbe0;font-size:15px}
+footer{padding:0 0 40px;color:#a892bf;font-size:14px}
+</style></head><body>
+<header class="wrap"><p class="eyebrow">Email-вёрстка · демо-проект</p><h1>Промо-письмо для магазина керамики</h1>
+<p class="lead">Табличная вёрстка с инлайн-стилями, ширина 600 px и адаптив для телефона. Вёрстка рассчитана на популярные почтовые сервисы и Outlook, а кнопки остаются кнопками, даже если картинки выключены.</p>
+<div class="chips"><span>600 px</span><span>Табличная вёрстка</span><span>VML-кнопка для Outlook</span><span>Прехедер</span><span>Меньше 100 КБ</span></div></header>
+<main class="wrap">
+<section class="show">
+ <div><p class="label">Компьютер</p><div class="desk"><div class="bar"><i></i><i></i><i></i><span style="margin-left:10px">Входящие</span></div><div class="meta"><b>Неделя керамики: −20% на посуду ручной работы</b><small>«Полка» · Скидка 20% до воскресенья и бесплатная доставка от 3 000 ₽</small></div><iframe src="email.html" title="Письмо на компьютере" loading="lazy"></iframe></div></div>
+ <div><p class="label">Телефон, 375 px</p><div class="phone"><iframe src="email.html" title="Письмо на телефоне" loading="lazy"></iframe></div></div>
+</section>
+<section class="notes">
+ <div class="note"><h3>Совместимость</h3><p>Вёрстка таблицами, условные комментарии для Outlook и безопасные шрифты с запасными вариантами.</p></div>
+ <div class="note"><h3>Адаптив</h3><p>На телефоне карточки товаров встают в столбик, отступы уменьшаются, а кнопка растягивается на всю ширину.</p></div>
+ <div class="note"><h3>Лёгкий вес</h3><p>HTML весит около 9 КБ, поэтому Gmail не обрезает письмо (его лимит 102 КБ).</p></div>
+ <div class="note"><h3>Готово к загрузке</h3><p><a href="email.html">Открыть исходное письмо →</a> Файл загружается в Unisender, Mailchimp, Sendsay и похожие сервисы. Картинки подключены абсолютными ссылками, поэтому письмо можно сразу загрузить в сервис рассылки.</p></div>
+</section></main>
+<footer class="wrap">Демо-проект для портфолио. Магазин вымышлен. <a href="../">Все демо-проекты</a></footer>
+</body></html>
