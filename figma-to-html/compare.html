@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%2314123a%27/%3E%3Cpath d=%27M9 17l5 5 9-11%27 stroke=%27%23fff%27 stroke-width=%273%27 fill=%27none%27 stroke-linecap=%27round%27/%3E%3C/svg%3E"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Демо-проект: сравнение макета и вёрстки лендинга вымышленного финсервиса «Горсть».">
+<title>Макет и вёрстка: «Горсть» — демо-проект</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:Onest,system-ui,sans-serif;background:#1e1e1e;color:#eee;line-height:1.55}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;background:#2c2c2c;border-bottom:1px solid #3a3a3a;flex-wrap:wrap;position:sticky;top:0;z-index:5}
+.bar h1{font-size:16px;font-weight:600}.bar h1 small{color:#9a9a9a;font-weight:400;margin-left:8px}
+.tabs{display:flex;background:#1e1e1e;border-radius:10px;padding:4px}
+.tabs button{background:none;border:0;color:#bbb;font:inherit;font-size:14px;padding:8px 16px;border-radius:8px;cursor:pointer}
+.tabs button[aria-pressed=true]{background:#6c63ff;color:#fff}
+.ctrl{display:flex;align-items:center;gap:10px;font-size:14px;color:#bbb}
+.ctrl input{accent-color:#6c63ff;width:160px}
+a{color:#a8a3ff}
+.intro{max-width:1100px;margin:28px auto 0;padding:0 24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:15px;color:#bbb}
+.intro ul{padding-left:18px}
+.stage{padding:24px;display:flex;justify-content:center}
+.frame-label{font-size:12px;color:#9a9a9a;margin-bottom:6px}
+.canvas{position:relative;width:min(1100px,100%);overflow:hidden;border-radius:6px;box-shadow:0 0 0 1px #3a3a3a,0 20px 60px rgba(0,0,0,.5);background:#fff}
+.canvas .scale{width:1440px;transform-origin:0 0;position:relative}
+.canvas img{display:block;width:1440px;height:auto}
+.canvas iframe{border:0;width:1440px;height:2095px;display:block;background:#fff}
+.layer{position:absolute;inset:0}
+.side{display:flex;gap:24px;justify-content:center;padding:24px;flex-wrap:wrap}
+.side>div{width:min(540px,100%)}.side .canvas{width:100%}.ctrl[hidden]{display:none}
+.grid{width:min(1100px,100%)}.grid img{display:block;width:100%;height:auto;border-radius:6px;box-shadow:0 0 0 1px #3a3a3a}.grid figcaption{margin-top:8px}
+</style>
+</head>
+<body>
+<div class="bar">
+  <h1>Горсть / Landing / Desktop 1440<small>демо-проект: макет → HTML</small></h1>
+  <div class="tabs" role="group" aria-label="Режим"><button data-m="side" aria-pressed="true">Рядом</button><button data-m="overlay" aria-pressed="false">Наложение</button><button data-m="live" aria-pressed="false">Только вёрстка</button><button data-m="grid" aria-pressed="false">Сетка макета</button></div>
+  <label class="ctrl" id="op" hidden>Прозрачность макета <input type="range" min="0" max="100" value="50"></label>
+</div>
+<div class="intro"><div><b style="color:#fff">Что сделано:</b><ul><li>вёрстка по макету 1440 px с сохранением сетки, отступов и типографики;</li><li>адаптив под 1024, 768 и 375 px, хотя в макете только десктоп;</li><li>семантическая разметка, состояния фокуса, лёгкие эффекты без библиотек.</li></ul></div><div><a href="index.html">Открыть вёрстку отдельно →</a><br><a href="../">Все демо-проекты</a></div></div>
+<div id="view"></div>
+<script>
+const view=document.getElementById('view'),op=document.getElementById('op'),range=op.querySelector('input');
+function fit(){document.querySelectorAll('.canvas').forEach(c=>{const s=c.clientWidth/1440,sc=c.querySelector('.scale');sc.style.transform=`scale(${s})`;c.style.height=(2095*s)+'px'})}
+const img='<img src="mockup.webp" alt="Макет страницы «Горсть»" width="1440" height="2095">',ifr='<iframe src="index.html" title="Сверстанная страница" scrolling="no" loading="lazy"></iframe>';
+const modes={
+ side:`<div class="side"><div><p class="frame-label">Макет (дизайн 1440 px)</p><div class="canvas"><div class="scale">${img}</div></div></div><div><p class="frame-label">Вёрстка (HTML/CSS)</p><div class="canvas"><div class="scale">${ifr}</div></div></div></div>`,
+ overlay:`<div class="stage"><div class="canvas"><div class="scale">${ifr}<div class="layer" id="mk" style="opacity:.5">${img}</div></div></div></div>`,
+ live:`<div class="stage"><div class="canvas"><div class="scale">${ifr}</div></div></div>`,
+ grid:`<div class="stage"><figure class="grid"><img src="mockup-annotated.webp" alt="Макет «Горсть» с сеткой 12 колонок и размерными линиями" width="1600" height="2299" loading="lazy"><figcaption class="frame-label">Сетка 12 колонок: поля 120 px, промежуток 24 px, колонка 78 px</figcaption></figure></div>`};
+function set(m){view.innerHTML=modes[m];op.hidden=m!=='overlay';document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===m));fit()}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>set(b.dataset.m));
+range.oninput=()=>{const mk=document.getElementById('mk');if(mk)mk.style.opacity=range.value/100};
+addEventListener('resize',fit);set('side');
+</script>
+</body>
+</html>

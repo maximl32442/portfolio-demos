@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%2314123a%27/%3E%3Cpath d=%27M9 17l5 5 9-11%27 stroke=%27%23fff%27 stroke-width=%273%27 fill=%27none%27 stroke-linecap=%27round%27/%3E%3C/svg%3E"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>«Горсть» — копите на цели без усилий</title>
+<meta name="description" content="Приложение для накоплений: округление покупок, цели и автопополнение.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14123a;--violet:#6c63ff;--v2:#8f88ff;--lav:#f1f0ff;--muted:#6b6a8c;--lime:#c6f36b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Onest,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6;font-size:17px}
+a{color:inherit}.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--v2);outline-offset:3px}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;text-decoration:none}
+.logo i{width:36px;height:36px;border-radius:11px;background:var(--violet);display:grid;place-items:center}
+.links{display:flex;gap:36px;font-weight:500;font-size:16px}.links a{text-decoration:none;color:var(--muted)}.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;padding:14px 24px;border-radius:14px;font-size:16px}
+.btn.v{background:var(--violet)}.btn:hover{opacity:.9}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:56px 0 96px}
+.pill{display:inline-flex;gap:8px;align-items:center;background:var(--lav);color:var(--violet);font-weight:600;font-size:14px;padding:7px 14px;border-radius:999px}
+.pill b{background:var(--violet);color:#fff;border-radius:999px;padding:1px 8px;font-size:12px}
+h1{font-size:clamp(40px,5.4vw,68px);line-height:1.04;font-weight:800;letter-spacing:-.025em;margin:20px 0}
+h1 .ac{color:var(--violet)}
+@media (min-width:1001px){h1 .ln{display:block;white-space:nowrap}}
+.lead{color:var(--muted);font-size:19px;max-width:500px}
+.cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.stores{display:flex;gap:12px}
+.store{display:flex;align-items:center;gap:10px;border:1.5px solid #e4e3f3;border-radius:14px;padding:10px 18px;text-decoration:none;font-size:13px;line-height:1.2}
+.store b{display:block;font-size:15px}
+.visual{position:relative;height:560px}
+.blob{position:absolute;inset:40px 0 0 40px;border-radius:40px;background:linear-gradient(150deg,var(--violet),#a29bff)}
+.phone{position:absolute;left:50%;top:0;transform:translateX(-50%);width:280px;height:560px;background:var(--ink);border-radius:44px;padding:12px;box-shadow:0 40px 80px -20px rgba(20,18,58,.45)}
+.screen{background:#f8f8ff;border-radius:34px;height:100%;padding:28px 20px;display:flex;flex-direction:column;gap:14px}
+.s-top{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+.balance{background:var(--ink);color:#fff;border-radius:22px;padding:20px}
+.balance small{color:#b8b6e0;font-size:12px}.balance b{display:block;font-size:30px;line-height:1.2;font-weight:800;letter-spacing:-.02em}
+.goal{background:#fff;border-radius:18px;padding:14px 16px;box-shadow:0 2px 10px rgba(20,18,58,.06);font-size:13px}
+.goal .row{display:flex;justify-content:space-between;font-weight:600;margin-bottom:8px}
+.bar{height:8px;background:var(--lav);border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:var(--violet);border-radius:99px}
+.float{position:absolute;background:#fff;border-radius:18px;padding:14px 18px;box-shadow:0 20px 40px -10px rgba(20,18,58,.25);font-size:14px;font-weight:600;display:flex;gap:12px;align-items:center}
+.float .dot{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;font-size:18px}
+.f1{left:0;top:120px}.f2{right:0;bottom:90px}
+.logos{display:flex;justify-content:space-between;gap:24px;padding:28px 0;border-block:1px solid #eeeef7;color:#a5a4c0;font-weight:700;font-size:18px;flex-wrap:wrap}
+.section{padding:100px 0}
+.h2{font-size:clamp(32px,4vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.1;max-width:640px}
+.sub{color:var(--muted);max-width:560px;margin-top:16px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.f{background:var(--lav);border-radius:28px;padding:32px;min-height:280px;display:flex;flex-direction:column;gap:12px}
+.f.dark{background:var(--ink);color:#fff}.f.dark p{color:#b8b6e0}.f.lime{background:var(--lime)}
+.f .n{font-size:15px;font-weight:700;color:var(--violet)}.f.dark .n{color:var(--lime)}.f.lime .n{color:var(--ink)}
+.f h3{font-size:24px;line-height:1.2;font-weight:700;margin-top:auto}.f p{color:var(--muted);font-size:16px}
+.cta-band{background:var(--ink);color:#fff;border-radius:36px;padding:72px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.cta-band p{color:#b8b6e0;margin-top:14px}
+.form{display:flex;gap:10px;background:#fff;padding:8px;border-radius:18px}
+.form input{flex:1;border:0;font:inherit;padding:0 14px;min-width:0;color:var(--ink)}
+.foot{padding:40px 0;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media (max-width:1000px){.hero,.cta-band{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}.links{display:none}.visual{height:520px}}
+@media (max-width:640px){.blob{inset:40px 10px 0 10px}.visual{height:540px}.wrap{padding:0 20px}.features{grid-template-columns:1fr}.cta-band{padding:36px 24px;border-radius:28px}.hero{padding:24px 0 64px}.float{display:none}.section{padding:64px 0}.nav .btn{padding:10px 16px}.form{flex-direction:column}.form input{padding:14px}}
+</style>
+</head>
+<body>
+<header class="wrap nav">
+  <a href="#" class="logo"><i><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12a7 7 0 0114 0v5H5z M9 8V6a3 3 0 016 0v2" stroke="#fff" stroke-width="2.2" fill="none" stroke-linejoin="round"/></svg></i>Горсть</a>
+  <nav class="links" aria-label="Разделы"><a href="#features">Возможности</a><a href="#start">Подключение</a></nav>
+  <a href="#start" class="btn">Скачать</a>
+</header>
+<main>
+<section class="wrap hero">
+  <div>
+    <span class="pill"><b>новое</b> Цели для всей семьи</span>
+    <h1><span class="ln">Копите на мечту,</span> <span class="ln"><span class="ac">не замечая</span> этого</span></h1>
+    <p class="lead">«Горсть» округляет каждую покупку и откладывает сдачу на ваши цели: отпуск, ноутбук или подушку безопасности.</p>
+    <div class="cta"><a href="#start" class="btn v">Начать копить</a>
+      <div class="stores"><a class="store" href="#start" aria-label="Скачать для iOS"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="#14123a" stroke-width="2"/></svg><span>Скачать для<b>iOS</b></span></a><a class="store" href="#start" aria-label="Скачать для Android"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4l14 8-14 8z" fill="none" stroke="#14123a" stroke-width="2" stroke-linejoin="round"/></svg><span>Скачать для<b>Android</b></span></a></div></div>
+  </div>
+  <div class="visual" aria-hidden="true">
+    <div class="blob"></div>
+    <div class="phone"><div class="screen">
+      <div class="s-top"><span>Привет, Аня</span><span>⚙</span></div>
+      <div class="balance"><small>Накоплено за год</small><b>148 320 ₽</b><small>+3 240 ₽ за неделю</small></div>
+      <div class="goal"><div class="row"><span>🏝 Отпуск</span><span>72%</span></div><div class="bar"><i style="width:72%"></i></div></div>
+      <div class="goal"><div class="row"><span>💻 Ноутбук</span><span>45%</span></div><div class="bar"><i style="width:45%"></i></div></div>
+      <div class="goal"><div class="row"><span>🛟 Подушка</span><span>90%</span></div><div class="bar"><i style="width:90%"></i></div></div>
+    </div></div>
+    <div class="float f1"><span class="dot" style="background:var(--lime)">☕</span><span>Кофе 270 ₽<br><small style="color:var(--violet)">+30 ₽ в накопления</small></span></div>
+    <div class="float f2"><span class="dot" style="background:var(--lav)">🎯</span><span>Цель «Отпуск»<br><small style="color:var(--muted)">осталось 2 месяца</small></span></div>
+  </div>
+</section>
+<div class="wrap logos" aria-label="Как нас используют"><span>Округление</span><span>Автопополнение</span><span>Семейные цели</span><span>Аналитика трат</span><span>Без комиссии</span></div>
+<section id="features" class="wrap section">
+  <h2 class="h2">Три способа копить, которые работают сами</h2>
+  <p class="sub">Включите один или все сразу. Деньги остаются на вашем накопительном счёте, и снять их можно в любой момент.</p>
+  <div class="features">
+    <article class="f"><span class="n">01</span><h3>Округление покупок</h3><p>Покупка за 270 ₽ превращается в 300 ₽, а разница уходит в накопления.</p></article>
+    <article class="f dark"><span class="n">02</span><h3>Автопополнение по расписанию</h3><p>Каждую пятницу или в день зарплаты на цель уходит фиксированная сумма.</p></article>
+    <article class="f lime"><span class="n">03</span><h3>Общие цели с семьёй</h3><p>Копите вместе и смотрите, кто сколько вложил, без таблиц и переводов.</p></article>
+  </div>
+</section>
+<section id="start" class="wrap" style="padding-bottom:80px">
+  <div class="cta-band"><div><h2 class="h2" style="color:#fff">Первая цель за 2 минуты</h2><p>Пришлём ссылку на приложение. Подключение бесплатное, а округление можно выключить в любой момент.</p></div>
+  <form class="form" onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;padding:12px;font-weight:600&quot;>Готово! Это демо: письмо не отправляется.</p>'"><label for="em" style="position:absolute;left:-9999px">Email</label><input id="em" type="email" required placeholder="Ваш email"><button class="btn v" type="submit" style="border:0;cursor:pointer;font:inherit;font-weight:600">Получить ссылку</button></form></div>
+</section>
+</main>
+<footer class="wrap foot"><span>© «Горсть»</span><span>Демо-проект для портфолио: вёрстка по макету. Сервис вымышлен.</span></footer>
+</body>
+</html>
