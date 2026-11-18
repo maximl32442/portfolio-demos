@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%2314123a%27/%3E%3Cpath d=%27M9 17l5 5 9-11%27 stroke=%27%23fff%27 stroke-width=%273%27 fill=%27none%27 stroke-linecap=%27round%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Портфолио: вёрстка и фронтенд — 6 демо-проектов</title>
+<meta name="description" content="Демо-проекты: лендинг, многостраничный сайт, вёрстка по макету, мобильная адаптация, JS-калькулятор и квиз, HTML-письмо.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1726;--card:#14233a;--line:#22365a;--text:#eaf1fb;--muted:#9fb1cc;--accent:#2ec4b6}
+*{box-sizing:border-box;margin:0}
+body{font-family:Manrope,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+header{padding:72px 0 40px}
+.eyebrow{color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
+h1{font-size:clamp(32px,5vw,56px);line-height:1.1;font-weight:800;margin:12px 0 16px;max-width:800px}
+.lead{color:var(--muted);font-size:18px;max-width:640px}
+.stack{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+.stack span{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;padding:24px 0 80px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.card:hover,.card:focus-visible{transform:translateY(-4px);border-color:var(--accent);outline:none}
+.thumb{aspect-ratio:16/9;display:grid;place-items:center;font-weight:800;font-size:22px;color:#fff;position:relative}
+.thumb small{position:absolute;top:14px;left:16px;font-size:12px;font-weight:600;background:rgba(0,0,0,.25);padding:4px 10px;border-radius:999px}
+.body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.body h2{font-size:20px}
+.body p{color:var(--muted);font-size:15px;flex:1}
+.go{color:var(--accent);font-weight:600;font-size:15px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="eyebrow">Портфолио · демо-проекты</div>
+  <h1>Вёрстка и фронтенд, которые можно открыть и потрогать</h1>
+  <p class="lead">Шесть живых примеров под разные задачи. Бизнесы вымышленные, а код настоящий: адаптив, быстрая загрузка и аккуратный интерактив без лишних библиотек.</p>
+  <div class="stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Адаптив</span><span>Email-вёрстка</span></div>
+</header>
+<main class="wrap grid">
+  <a class="card" href="landing/"><div class="thumb" style="background:linear-gradient(135deg,#2b1d16,#c8643b)"><small>Лендинг</small>Обжарка «Зерно»</div><div class="body"><h2>Лендинг для обжарочной</h2><p>Одностраничный сайт с подпиской на кофе: оффер, тарифы, FAQ и форма заявки с проверкой полей.</p><span class="go">Открыть →</span></div></a>
+  <a class="card" href="vizitka/"><div class="thumb" style="background:linear-gradient(135deg,#1f3b34,#7fb5a0)"><small>Многостраничный сайт</small>Кабинет реабилитации «Ось»</div><div class="body"><h2>Сайт-визитка из 5 страниц</h2><p>Сайт кабинета реабилитации: услуги, цены, галерея, страница о специалистах и контакты. На всех страницах общее меню.</p><span class="go">Открыть →</span></div></a>
+  <a class="card" href="figma-to-html/compare.html"><div class="thumb" style="background:linear-gradient(135deg,#1d1b4b,#6c63ff)"><small>Вёрстка по макету</small>Финсервис «Горсть»</div><div class="body"><h2>Макет → HTML</h2><p>Макет и готовая вёрстка рядом, плюс режим наложения, чтобы сверить сетку и отступы.</p><span class="go">Открыть →</span></div></a>
+  <a class="card" href="adaptive/"><div class="thumb" style="background:linear-gradient(135deg,#222,#e63946)"><small>Мобильная адаптация</small>Автосервис «Гараж 54»</div><div class="body"><h2>До и после адаптива</h2><p>Тот же сайт на экране телефона до и после адаптации, со списком всего, что исправлено.</p><span class="go">Открыть →</span></div></a>
+  <a class="card" href="calculator/"><div class="thumb" style="background:linear-gradient(135deg,#0b3954,#f4a259)"><small>JavaScript</small>Ремонт «Ровно»</div><div class="body"><h2>Калькулятор и квиз</h2><p>Калькулятор стоимости ремонта, который пересчитывает сумму сразу, и квиз с ветвлением и экраном результата.</p><span class="go">Открыть →</span></div></a>
+  <a class="card" href="email/"><div class="thumb" style="background:linear-gradient(135deg,#3d1e6d,#ff7eb6)"><small>HTML-письмо</small>Магазин «Полка»</div><div class="body"><h2>Промо-рассылка</h2><p>Табличная вёрстка письма с адаптивом для телефона и «пуленепробиваемыми» кнопками. Весит меньше 100 КБ.</p><span class="go">Открыть →</span></div></a>
+</main>
+<footer class="wrap">Все компании, тексты и цены в демо вымышлены и сделаны для портфолио.</footer>
+</body>
+</html>
